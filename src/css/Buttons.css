@@ -1,0 +1,14 @@
+button {
+    background-color: lightgray;
+    padding: 25px 35px;
+    margin: 5px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+}
+
+button:hover {
+    background-color: darkslateblue; /* Color de fondo al pasar el ratón */
+    color: #4CAF50; /* Color del texto al pasar el ratón */
+}
