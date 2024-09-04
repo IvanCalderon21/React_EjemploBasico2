@@ -16,26 +16,30 @@ import OpMulComponent from './OpMulComponent'
 import OpDivComponent from './OpDivComponent'
 import OpSqrComponent from './OpSqrComponent'
 import OpTotalComponent from './OpTotalComponent'
+import { CalculatorProvider } from '../providers/CalculatorProvider'
 
 export default function CalculatorComponent() {
   return (
-    <div className='Calculator'>
-      <Number0Component />
-      <Number1Component />
-      <Number2Component />
-      <Number3Component />
-      <Number4Component />
-      <Number5Component />
-      <Number6Component />
-      <Number7Component />
-      <Number8Component />
-      <Number9Component />
-      <OpAddComponent />
-      <OpSubComponent />
-      <OpMulComponent />
-      <OpDivComponent />
-      <OpSqrComponent />
-      <OpTotalComponent />
-    </div>
+    <CalculatorProvider>
+      <div className='Calculator'>
+        <Number0Component />
+        <Number1Component />
+        <Number2Component />
+        <Number3Component />
+        <Number4Component />
+        <Number5Component />
+        <Number6Component />
+        <Number7Component />
+        <Number8Component />
+        <Number9Component />
+        
+        <OpAddComponent />
+        <OpSubComponent />
+        <OpMulComponent />
+        <OpDivComponent />
+        <OpSqrComponent />
+        <OpTotalComponent />
+      </div>
+    </CalculatorProvider>
   )
 }

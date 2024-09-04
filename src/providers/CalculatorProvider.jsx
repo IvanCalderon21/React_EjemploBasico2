@@ -1,0 +1,74 @@
+import { createContext, useState } from 'react';
+
+// Crear el contexto para la calculadora
+export const CalculatorContext = createContext();
+
+export const CalculatorProvider = ({ children }) => {
+    const [firstNumber, setFirstNumber] = useState('');
+    const [secondNumber, setSecondNumber] = useState('');
+    const [currentAdd, setCurrentAdd] = useState(0);
+    const [currentDiv, setCurrentDiv] = useState(0);
+    const [currentMul, setCurrentMul] = useState(0);
+    const [currentSqr, setCurrentSqr] = useState(0);
+    const [currentSub, setCurrentSub] = useState(0);
+    const [operation, setOperation] = useState(null);  // Para almacenar la operación seleccionada
+
+    // Al hacer clic en un número, acumula el dígito en el número adecuado
+    const selectNumber = (number) => {
+        if (operation === null) {
+            setFirstNumber(prev => prev + number);
+            console.log("Primer número: ", firstNumber + number);
+        } else {
+            setSecondNumber(prev => prev + number);
+            console.log("Segundo número: ", secondNumber + number);
+        }
+    };
+
+    // Al hacer clic en una operación (ej: '+')
+    const handleOperation = (op) => {
+        setOperation(op); // Guarda la operación actual
+    };
+
+    // Cuando haces clic en el botón Total ('='), realiza la operación
+    const calculateTotal = () => {
+        if (firstNumber !== '' && secondNumber !== '') {
+            let result = 0;
+            const num1 = parseFloat(firstNumber);
+            const num2 = parseFloat(secondNumber);
+
+            if (operation === 'add') {
+                result = num1 + num2;
+                setCurrentAdd(result); // Actualiza la suma
+            }
+            if (operation === 'div') {
+                result = num1 / num2;
+                setCurrentDiv(result);
+            }
+            if (operation === 'mul') {
+                result = num1 * num2;
+                setCurrentMul(result);
+            }
+            if (operation === 'sqr') {
+                result = Math.pow(num1, 1 / num2);
+                setCurrentSqr(result);
+            }
+            if (operation === 'sub') {
+                result = num1 - num2;
+                setCurrentSub(result);
+            }
+            
+            console.log("Resultado: ", result);
+            // Reiniciamos los valores
+            setFirstNumber('');
+            setSecondNumber('');
+            setOperation(null);
+        }
+    };
+
+    return (
+        <CalculatorContext.Provider 
+            value={{ selectNumber, handleOperation, calculateTotal, currentAdd, currentDiv, currentMul, currentSqr, currentSub }}>
+            {children}
+        </CalculatorContext.Provider>
+    );
+};

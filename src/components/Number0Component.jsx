@@ -1,8 +1,7 @@
 import React from 'react'
-import '../css/Buttons.css'
+import NumberComponent from './NumberComponent'
 
 export default function Number0Component() {
-  return (
-    <button>0</button>
-  )
+  return <NumberComponent number={0} />;
+  
 }
