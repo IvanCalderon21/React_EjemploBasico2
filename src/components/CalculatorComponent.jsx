@@ -16,12 +16,15 @@ import OpMulComponent from './OpMulComponent'
 import OpDivComponent from './OpDivComponent'
 import OpSqrComponent from './OpSqrComponent'
 import OpTotalComponent from './OpTotalComponent'
+import DisplayComponent from './DisplayComponent'
 import { CalculatorProvider } from '../providers/CalculatorProvider'
 
 export default function CalculatorComponent() {
   return (
     <CalculatorProvider>
       <div className='Calculator'>
+        <DisplayComponent />
+
         <Number0Component />
         <Number1Component />
         <Number2Component />
