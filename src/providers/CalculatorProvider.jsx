@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 // Crear el contexto para la calculadora
 export const CalculatorContext = createContext();
@@ -36,17 +36,19 @@ export const CalculatorProvider = ({ children }) => {
             case 'null':
                 operationS = '';
                 break;
+            default:
+                break;
         }
 
-        // setDisplayText(`${firstNumber} ${operationS} ${secondNumber}`);
+        setDisplayText(`${firstNumber} ${operationS} ${secondNumber}`);
 
-        if (operation === null) {
-            setDisplayText(firstNumber);
-        } else if (secondNumber === '') {
-            setDisplayText(`${firstNumber} ${operationS}`);
-        } else {
-            setDisplayText(`${firstNumber} ${operationS} ${secondNumber}`);
-        }
+        // if (operation === null) {
+        //     setDisplayText(firstNumber);
+        // } else if (secondNumber === '') {
+        //     setDisplayText(`${firstNumber} ${operationS}`);
+        // } else {
+        //     setDisplayText(`${firstNumber} ${operationS} ${secondNumber}`);
+        // }
     };
 
     // Al hacer clic en un número, acumula el dígito en el número adecuado
@@ -107,9 +109,9 @@ export const CalculatorProvider = ({ children }) => {
 
             console.log("Resultado: ", result);
             // Reiniciamos los valores
-            setFirstNumber('');
-            setSecondNumber('');
-            setOperation(null);
+            // setFirstNumber('');
+            // setSecondNumber('');
+            // setOperation(null);
         }
     };
 
@@ -120,6 +122,10 @@ export const CalculatorProvider = ({ children }) => {
         setOperation(null);
         setDisplayText('');
     };
+
+    useEffect(() => {
+        updateDisplayText();
+    },[firstNumber, secondNumber, operation]);
 
     return (
         <CalculatorContext.Provider 

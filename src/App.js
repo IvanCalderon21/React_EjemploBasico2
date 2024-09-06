@@ -9,10 +9,10 @@ function App() {
         <TitleComponent />
       </header>
 
-      <body>
+      <main>
         <CalculatorComponent />
 
-      </body>
+      </main>
 
     </div>
   );

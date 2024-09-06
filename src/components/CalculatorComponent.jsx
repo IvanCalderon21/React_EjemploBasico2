@@ -10,6 +10,7 @@ import Number6Component from './Number6Component'
 import Number7Component from './Number7Component'
 import Number8Component from './Number8Component'
 import Number9Component from './Number9Component'
+import NumberDotComponent from './NumberDotComponent'
 import OpAddComponent from './OpAddComponent'
 import OpSubComponent from './OpSubComponent'
 import OpMulComponent from './OpMulComponent'
@@ -36,6 +37,7 @@ export default function CalculatorComponent() {
         <Number8Component className="grid-item" />
         <Number9Component className="grid-item" />
         <Number0Component className="grid-item" />
+        <NumberDotComponent className="grid-item" />
         
         <OpAddComponent className="grid-item" />
         <OpSubComponent className="grid-item" />
