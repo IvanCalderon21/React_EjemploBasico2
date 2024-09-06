@@ -1,6 +1,15 @@
 .Display {
-    color: white;
-    font-size: larger;
+    grid-column: 1 / -1;
+    color: black;
+    background-color: white;
+    font-size: medium;
     font-weight: bold;
+    border: solid black 1px;
+    padding: 10px;
+    width: 350px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }

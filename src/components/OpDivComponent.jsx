@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import '../css/Buttons.css'
 import { CalculatorContext } from '../providers/CalculatorProvider'
+import '../css/Buttons.css'
 
 export default function OpDivComponent() {
   const { handleOperation } = useContext(CalculatorContext);

@@ -5,7 +5,7 @@
     display: grid;
     border: solid red 1px;
     grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
-    
+    /* gap: 10px; */
     justify-items: center; /* Centra horizontalmente los elementos dentro de las celdas */
     align-items: center; /* Opcional: centra verticalmente los elementos dentro de las celdas */
     
@@ -14,3 +14,34 @@
 
     background-color: gray;
 }
+
+.grid-item:first-child {
+    grid-column: 1 / -1; /* Hace que el primer elemento abarque toda la fila */
+  }
+
+/* Opcional: Estilo para el resto de los elementos */
+.grid-item {
+    background-color: lightgray;
+    padding: 25px 35px;
+    margin: 5px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+  }
+
+
+  /* button {
+    background-color: lightgray;
+    padding: 25px 35px;
+    margin: 5px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+} */
+
+/* button:hover {
+    background-color: darkslateblue;
+    color: #4CAF50;
+} */

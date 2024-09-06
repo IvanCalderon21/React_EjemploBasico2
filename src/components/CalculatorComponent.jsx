@@ -18,30 +18,32 @@ import OpSqrComponent from './OpSqrComponent'
 import OpTotalComponent from './OpTotalComponent'
 import DisplayComponent from './DisplayComponent'
 import { CalculatorProvider } from '../providers/CalculatorProvider'
+import OpACComponent from './OpACComponent'
 
 export default function CalculatorComponent() {
   return (
     <CalculatorProvider>
       <div className='Calculator'>
-        <DisplayComponent />
+        <DisplayComponent className="grid-item" />
 
-        <Number0Component />
-        <Number1Component />
-        <Number2Component />
-        <Number3Component />
-        <Number4Component />
-        <Number5Component />
-        <Number6Component />
-        <Number7Component />
-        <Number8Component />
-        <Number9Component />
+        <Number1Component className="grid-item" />
+        <Number2Component className="grid-item" />
+        <Number3Component className="grid-item" />
+        <Number4Component className="grid-item" />
+        <Number5Component className="grid-item" />
+        <Number6Component className="grid-item" />
+        <Number7Component className="grid-item" />
+        <Number8Component className="grid-item" />
+        <Number9Component className="grid-item" />
+        <Number0Component className="grid-item" />
         
-        <OpAddComponent />
-        <OpSubComponent />
-        <OpMulComponent />
-        <OpDivComponent />
-        <OpSqrComponent />
-        <OpTotalComponent />
+        <OpAddComponent className="grid-item" />
+        <OpSubComponent className="grid-item" />
+        <OpMulComponent className="grid-item" />
+        <OpDivComponent className="grid-item" />
+        <OpSqrComponent className="grid-item" />
+        <OpTotalComponent className="grid-item" />
+        <OpACComponent className="grid-item" />
       </div>
     </CalculatorProvider>
   )

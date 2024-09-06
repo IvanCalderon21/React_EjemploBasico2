@@ -33,7 +33,12 @@ export const CalculatorProvider = ({ children }) => {
             case 'sub':
                 operationS = '-';
                 break;
+            case 'null':
+                operationS = '';
+                break;
         }
+
+        // setDisplayText(`${firstNumber} ${operationS} ${secondNumber}`);
 
         if (operation === null) {
             setDisplayText(firstNumber);
@@ -46,13 +51,14 @@ export const CalculatorProvider = ({ children }) => {
 
     // Al hacer clic en un número, acumula el dígito en el número adecuado
     const selectNumber = (number) => {
-        updateDisplayText();
         if (operation === null) {
             setFirstNumber(prev => prev + number);
             console.log("Primer número: ", firstNumber + number);
+            // updateDisplayText();
         } else {
             setSecondNumber(prev => prev + number);
             console.log("Segundo número: ", secondNumber + number);
+            // updateDisplayText();
         }
         updateDisplayText();
     };
@@ -107,9 +113,17 @@ export const CalculatorProvider = ({ children }) => {
         }
     };
 
+    // Al hacer clic en una operación (ej: '+')
+    const clearDisplay = () => {
+        setFirstNumber('');
+        setSecondNumber('');
+        setOperation(null);
+        setDisplayText('');
+    };
+
     return (
         <CalculatorContext.Provider 
-            value={{ selectNumber, handleOperation, calculateTotal, displayText, currentAdd, currentDiv, currentMul, currentSqr, currentSub }}>
+            value={{ selectNumber, handleOperation, calculateTotal, clearDisplay, displayText, currentAdd, currentDiv, currentMul, currentSqr, currentSub }}>
             {children}
         </CalculatorContext.Provider>
     );
